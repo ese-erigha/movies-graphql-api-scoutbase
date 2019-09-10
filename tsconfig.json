@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "lib": ["es5", "es6", "esnext", "dom"],
+      "target": "es5",
+      "baseUrl": "./src/",
+      "sourceMap": true,
+      "esModuleInterop": true,
+      "outDir": "./dist",
+      "allowJs": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": [
+      "node_modules",
+      ".vscode",
+      "test/**/*.spec.ts"
+    ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "movies-graphql-api-scoutbase",
+  "version": "1.0.0",
+  "description": "GraphQL Node.js API for Movies database - Scoutbase",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --env.NODE_ENV=production --mode production",
+    "start:dev": "webpack --env.NODE_ENV=development --mode development",
+    "run:dev": "SET NODE_ENV=development && nodemon dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitese/movies-graphql-api-scoutbase.git"
+  },
+  "author": "Ese Erigha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gitese/movies-graphql-api-scoutbase/issues"
+  },
+  "homepage": "https://github.com/gitese/movies-graphql-api-scoutbase#readme",
+  "dependencies": {
+    "apollo-server": "^2.9.3",
+    "apollo-server-express": "^2.9.3",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dataloader": "^1.4.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "graphql": "^14.5.4",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-resolvers": "^0.3.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.18.4",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@types/bcrypt": "^3.0.0",
+    "@types/body-parser": "^1.17.1",
+    "@types/cors": "^2.8.6",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.1",
+    "@types/graphql": "^14.5.0",
+    "@types/graphql-iso-date": "^3.3.3",
+    "@types/jsonwebtoken": "^8.3.3",
+    "@types/lodash": "^4.14.138",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.7.4",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-shell-plugin": "^0.5.0"
+  }
+}
