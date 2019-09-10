@@ -1,5 +1,6 @@
 
 import {Request} from "express";
+import {AuthenticationError} from "apollo-server";
 import {sign, verify} from "jsonwebtoken";
 import {compare} from "bcrypt";
 import { IUser } from "../graphiql/interface";
@@ -25,13 +26,14 @@ export const generateToken =(user: IUser): Promise<string> =>{
 };
 
 
-export const getUserFromAuthToken = (token: string): Promise<IUser> =>{
-    return new Promise((resolve, reject)=>{
-        verify(token,TOKEN_SECRET_KEY,(err,user:IUser)=>{
-            if(err) reject(err);
-            resolve(user);
-        });
-    });
+export const getUserFromAuthToken = (token: string): IUser =>{
+
+    try{
+        const user = verify(token,TOKEN_SECRET_KEY) as IUser;
+        return user;
+    }catch(err){
+        throw new AuthenticationError("Invalid token provided");
+    }
 };
 
 export const validPassword = async (password, hashedPassword): Promise<Boolean> => {
