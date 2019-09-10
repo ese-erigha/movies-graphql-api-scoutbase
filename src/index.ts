@@ -44,9 +44,8 @@ const server = new ApolloServer({
     },
     context: async({req})=>{
         const token = getAccessTokenFromRequestHeaders(req);
-        
         return {
-          user: (token) ? await getUserFromAuthToken(token) : null
+          user: (token) ? getUserFromAuthToken(token) : token
         };
       }
   });
