@@ -34,16 +34,13 @@ const server = new ApolloServer({
     resolvers,
     schemaDirectives,
     formatError: error => {
-      // remove the internal sequelize error message
-      // leave only the important validation error
-      const message = error.message
-        .replace('SequelizeValidationError: ', '')
-        .replace('Validation error: ', '');
-  
+      
       return {
-        ...error,
-        message,
-      };
+        message: error.message,
+        state: error.originalError,
+        locations: error.locations,
+        path: error.path,
+      }
     },
     context: async({req})=>{
         const token = getAccessTokenFromRequestHeaders(req);
