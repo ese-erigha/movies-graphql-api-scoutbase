@@ -62,3 +62,6 @@ typings/
 
 #distribution directory
 dist/
+
+#logger directory
+log/

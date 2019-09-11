@@ -14,16 +14,16 @@ import models  from "./database/models";
 import {getAccessTokenFromRequestHeaders, getUserFromAuthToken} from "./utils/auth";
 import schemaDirectives from "./graphiql/directives";
 import * as services from "./services";
-
-const { PORT = 3000} = process.env;
+import accessLogStream from "./utils/logger";
+const { NODE_ENV, PORT = 3000} = process.env;
 
 const app = express();
 
+
+// setup the logger
+app.use(morgan('combined', {stream: accessLogStream}));
+
 app.use(cors());
-
-// Express morgan logs
-app.use(morgan('combined'));
-
 
 // Parse application/x-www-form-urlencoded
 app.use(urlencoded({extended: true}));
@@ -53,7 +53,7 @@ const server = new ApolloServer({
         };
     },
     introspection: false,
-    playground: true,
+    playground: (NODE_ENV === "development") ? true : false,
     validationRules: [depthLimit(5)]
   });
   
