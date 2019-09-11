@@ -12,6 +12,8 @@ import resolvers from "./graphiql/resolvers";
 import models  from "./database/models";
 import {getAccessTokenFromRequestHeaders, getUserFromAuthToken} from "./utils/auth";
 import schemaDirectives from "./graphiql/directives";
+import * as services from "./services";
+
 const { PORT = 3000} = process.env;
 
 const app = express();
@@ -45,7 +47,8 @@ const server = new ApolloServer({
     context: async({req})=>{
         const token = getAccessTokenFromRequestHeaders(req);
         return {
-          user: (token) ? getUserFromAuthToken(token) : token
+          user: (token) ? getUserFromAuthToken(token) : token,
+          ...services
         };
       }
   });
