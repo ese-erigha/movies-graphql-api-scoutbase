@@ -7,6 +7,7 @@ import cors from 'cors';
 import {urlencoded,json} from 'body-parser';
 import morgan from 'morgan';
 import {ApolloServer} from 'apollo-server-express';
+import depthLimit from "graphql-depth-limit";
 import graphqlSchema from "./graphiql/schema";
 import resolvers from "./graphiql/resolvers";
 import models  from "./database/models";
@@ -50,7 +51,10 @@ const server = new ApolloServer({
           user: (token) ? getUserFromAuthToken(token) : token,
           ...services
         };
-      }
+    },
+    introspection: false,
+    playground: true,
+    validationRules: [depthLimit(5)]
   });
   
   server.applyMiddleware({app, path: '/graphql'});
