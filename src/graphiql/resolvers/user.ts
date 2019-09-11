@@ -1,13 +1,12 @@
 import { UserInputError, AuthenticationError } from 'apollo-server';
 import {validate} from "@hapi/joi";
 import { ICreateUserInputType, IAuth, IUser, ILoginInputType } from "../interface";
-import { userService } from "../../services";
 import { generateToken, validPassword } from "../../utils/auth";
 import {createUserSchema, loginSchema} from "../../validation/user.validator";
 
 export default{
     Mutation: {
-        createUser: async(root, input: ICreateUserInputType): Promise<IAuth> => {
+        createUser: async(root, input: ICreateUserInputType,{userService}): Promise<IAuth> => {
 
             const {error} = validate(input, createUserSchema);
             if(!error){
@@ -25,7 +24,7 @@ export default{
             );
             
         },
-        login: async(root, input: ILoginInputType): Promise<IAuth> => {
+        login: async(root, input: ILoginInputType,{userService}): Promise<IAuth> => {
 
             const {error} = validate(input, loginSchema);
             if(!error){

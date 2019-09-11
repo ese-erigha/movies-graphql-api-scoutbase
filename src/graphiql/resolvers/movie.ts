@@ -1,11 +1,9 @@
-import {movieService} from "../../services";
-
 export default{
     Query:{
-        movies: async()=> await movieService.findAll()
+        movies: async(root,args, {movieService})=> await movieService.findAll()
     },
     Movie:{
-        actors: ({id})=> movieService.batchFindActorsLoader.load(id),
-        directors: ({id})=> movieService.batchFindDirectorsLoader.load(id) 
+        actors: ({id}, args,{movieService})=> movieService.batchFindActorsLoader.load(id),
+        directors: ({id}, args,{movieService})=> movieService.batchFindDirectorsLoader.load(id) 
     }
 };
