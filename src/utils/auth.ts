@@ -43,4 +43,4 @@ export const validPassword = async (password, hashedPassword): Promise<Boolean> 
     catch (err) {
         throw(err);
     }
-}
+};

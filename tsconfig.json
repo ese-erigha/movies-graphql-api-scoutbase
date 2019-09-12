@@ -12,6 +12,6 @@
     "exclude": [
       "node_modules",
       ".vscode",
-      "test/**/*.spec.ts"
+      "__tests__/**/*.spec.ts"
     ]
 }
