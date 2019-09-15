@@ -7,7 +7,7 @@
     "build": "webpack --env.NODE_ENV=production --mode production",
     "start:dev": "webpack --env.NODE_ENV=development --mode development",
     "run:dev": "SET NODE_ENV=development && nodemon dist/index.js",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
@@ -60,7 +60,9 @@
     "@types/lodash": "^4.14.138",
     "@types/morgan": "^1.7.37",
     "@types/node": "^12.7.4",
+    "apollo-server-testing": "^2.9.3",
     "babel-loader": "^8.0.6",
+    "graphql-tag": "^2.10.1",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "ts-jest": "^24.0.2",
