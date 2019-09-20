@@ -7,6 +7,7 @@
     "build": "webpack --env.NODE_ENV=production --mode production",
     "start:dev": "webpack --env.NODE_ENV=development --mode development",
     "run:dev": "SET NODE_ENV=development && nodemon dist/index.js",
+    "run:prod": "SET NODE_ENV=production && nodemon dist/index.js",
     "test": "jest --verbose",
     "coverage": "jest --coverage"
   },
