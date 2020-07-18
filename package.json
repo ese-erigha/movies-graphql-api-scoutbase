@@ -37,7 +37,7 @@
     "graphql-resolvers": "^0.3.3",
     "graphql-tools": "^4.0.5",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "morgan": "^1.9.1",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
